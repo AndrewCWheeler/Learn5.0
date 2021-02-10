@@ -91,17 +91,23 @@
                                 <i class="fa fa-refresh fa-sm" aria-hidden="true"></i>
                             </a>
                         </li>
-                        <li class="nav-item dropdown ml-auto mx-3" type="button">
+                        <li class="nav-item mx-3 ml-lg-auto" type="button">
+                            <a href="/Home/Logout" class="nav-link text-white">
+                                @ViewBag.LoggedUser Logout
+                                <i class="fa fa-sign-out ml-2"></i>
+                            </a>
+                        </li>
+                        @*<li class="nav-item dropdown ml-auto mx-3" type="button">
                             <div class="nav-link text-white dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-user"></i>
-                                @ViewBag.LoggedUser.Username
+                                @ViewBag.LoggedUser
                             </div>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" asp-controller="Home" asp-action="Logout">
                                     Logout
                                 </a>
                             </div>
-                        </li>
+                        </li>*@
                     </ul>
                 </div>
             </div>

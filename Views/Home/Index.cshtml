@@ -28,15 +28,19 @@ background-position-x: 50%;
                         <p class='subtitle'>
                             <strong>A supplemental tool to enhance your student's education.</strong>
                         </p>
-                        <a type="button" id='modalButton' data-toggle="modal" data-target="#signUpModal"
+                        <a id='modalButton' data-toggle="modal" data-target="#signUpModal"
                            class="btn btn-indigo btn-lg">
                             Create Account
                             <i class="fas fa-user ml-2"></i>
                         </a>
-                        <a type="button" id='modalButton2' data-toggle="modal" data-target="#signInModal"
+                        <a id='modalButton2' data-toggle="modal" data-target="#signInModal"
                            class="btn btn-indigo btn-lg">
                             Sign-in &nbsp;
                             <i class="fas fa-sign-in-alt"></i>
+                        </a>
+                        <a href="/Home/Guest" class="btn btn-secondary btn-lg">
+                            Guest Login
+                            <i class="fas fa-door-open ml-2"></i>
                         </a>
                     </div>
                     <!--SIGN-UP Modal-->
@@ -77,7 +81,8 @@ background-position-x: 50%;
                                             <span class="text-danger" asp-validation-for="Register.Confirm"></span>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="submit" class="btn btn-indigo">Submit</button>
+                                            <a class="btn btn-indigo" href="/Home/Guest">Guest Login</a>
+                                            <button type="submit" disabled class="btn btn-indigo">Submit</button>
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                         </div>
                                     </form>
@@ -112,7 +117,8 @@ background-position-x: 50%;
                                             <span class="text-danger" asp-validation-for="Login.Password"></span>
                                         </div>
                                         <div class="modal-footer">
-                                            <button class="btn btn-indigo">Submit</button>
+                                            <a class="btn btn-indigo" href="/Home/Guest">Guest Login</a>
+                                            <button disabled class="btn btn-indigo">Submit</button>
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                         </div>
                                     </form>
@@ -147,16 +153,19 @@ background-position-x: 50%;
                         <!-- Main heading -->
                         <h3 class="h3 mb-3">Repetition Makes Memory</h3>
                         <p>
-                            Each level is designed to build upon the last.
+                            Each level is designed to build upon the last. Practice as many times as you want! There are no test scores here. Just practice, practice, practice.
                         </p>
-                        <p>Practice as many times as you want before taking each level's quiz.</p>
+
                         <!-- Main heading -->
-                        <hr />
                         <p>
-                            <strong>12</strong> levels,
+                            <strong>9</strong> levels,
                             <strong>Thousands</strong> of flash cards for each level.
                             <strong>Free to use!</strong>
                         </p>
+                        <hr />
+                        <p><em>"Learning is the beginning of wealth. Searching and learning is where the miracle process all begins. The great breakthrough in your life comes when you realize it that you can learn anything you need to learn to accomplish any goal that you set for yourself. This means there are no limits on what you can be, have or do."</em></p>
+                        <p><em>~ Albert Einstein</em></p>
+
                     </div>
                     <!--Grid column-->
                 </div>

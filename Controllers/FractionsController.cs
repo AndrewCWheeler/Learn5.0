@@ -53,7 +53,8 @@ namespace Learn.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-            ViewBag.LoggedUser = _context.Users.FirstOrDefault(u => u.Id == (int)LoggedId);
+            //ViewBag.LoggedUser = _context.Users.FirstOrDefault(u => u.Id == (int)LoggedId);
+            ViewBag.LoggedUser = "Guest";
             Random rand = new Random();
             Fraction frac = new Fraction();
             // Instantiate an array of Fraction Card objects
@@ -94,7 +95,8 @@ namespace Learn.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-            ViewBag.LoggedUser = _context.Users.FirstOrDefault(u => u.Id == (int)LoggedId);
+            //ViewBag.LoggedUser = _context.Users.FirstOrDefault(u => u.Id == (int)LoggedId);
+            ViewBag.LoggedUser = "Guest";
             Random rand = new Random();
             Fraction frac = new Fraction();
             // Instantiate an array of Fraction Card objects
@@ -135,7 +137,8 @@ namespace Learn.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-            ViewBag.LoggedUser = _context.Users.FirstOrDefault(u => u.Id == (int)LoggedId);
+            //ViewBag.LoggedUser = _context.Users.FirstOrDefault(u => u.Id == (int)LoggedId);
+            ViewBag.LoggedUser = "Guest";
             Random rand = new Random();
             Fraction frac = new Fraction();
             // Instantiate an array of Fraction Card objects
@@ -176,7 +179,8 @@ namespace Learn.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-            ViewBag.LoggedUser = _context.Users.FirstOrDefault(u => u.Id == (int)LoggedId);
+            //ViewBag.LoggedUser = _context.Users.FirstOrDefault(u => u.Id == (int)LoggedId);
+            ViewBag.LoggedUser = "Guest";
             Random rand = new Random();
             Fraction frac = new Fraction();
             // Instantiate an array of Fraction Card objects
@@ -201,7 +205,8 @@ namespace Learn.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-            ViewBag.LoggedUser = _context.Users.FirstOrDefault(u => u.Id == (int)LoggedId);
+            //ViewBag.LoggedUser = _context.Users.FirstOrDefault(u => u.Id == (int)LoggedId);
+            ViewBag.LoggedUser = "Guest";
             Random rand = new Random();
             Fraction frac = new Fraction();
             // Instantiate an array of Fraction Card objects
@@ -226,7 +231,8 @@ namespace Learn.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-            ViewBag.LoggedUser = _context.Users.FirstOrDefault(u => u.Id == (int)LoggedId);
+            //ViewBag.LoggedUser = _context.Users.FirstOrDefault(u => u.Id == (int)LoggedId);
+            ViewBag.LoggedUser = "Guest";
             Random rand = new Random();
             Fraction frac = new Fraction();
             // Instantiate an array of Fraction Card objects
@@ -251,7 +257,8 @@ namespace Learn.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-            ViewBag.LoggedUser = _context.Users.FirstOrDefault(u => u.Id == (int)LoggedId);
+            //ViewBag.LoggedUser = _context.Users.FirstOrDefault(u => u.Id == (int)LoggedId);
+            ViewBag.LoggedUser = "Guest";
             Random rand = new Random();
             Fraction frac = new Fraction();
             // Instantiate an array of Fraction Card objects
@@ -337,7 +344,8 @@ namespace Learn.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-            ViewBag.LoggedUser = _context.Users.FirstOrDefault(u => u.Id == (int)LoggedId);
+            //ViewBag.LoggedUser = _context.Users.FirstOrDefault(u => u.Id == (int)LoggedId);
+            ViewBag.LoggedUser = "Guest";
             Random rand = new Random();
             Fraction frac = new Fraction();
             // Instantiate an array of Fraction Card objects
@@ -423,7 +431,8 @@ namespace Learn.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-            ViewBag.LoggedUser = _context.Users.FirstOrDefault(u => u.Id == (int)LoggedId);
+            //ViewBag.LoggedUser = _context.Users.FirstOrDefault(u => u.Id == (int)LoggedId);
+            ViewBag.LoggedUser = "Guest";
             Random rand = new Random();
             Fraction frac = new Fraction();
             // Instantiate an array of Fraction Card objects

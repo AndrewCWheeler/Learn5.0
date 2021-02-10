@@ -83,6 +83,13 @@ namespace Learn.Controllers
                 return View("Index");
             }
         }
+
+        public IActionResult Guest()
+        {
+            HttpContext.Session.SetInt32("UserId", 1);
+            return RedirectToAction("DivideLevelOne", "Fractions");
+        }
+
         public IActionResult Logout()
         {
             int? LoggedUser = HttpContext.Session.GetInt32("UserId");
