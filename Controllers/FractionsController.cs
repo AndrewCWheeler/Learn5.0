@@ -175,7 +175,7 @@ namespace Learn.Controllers
         public IActionResult MultiplyLevelOne()
         {
             int? LoggedId = HttpContext.Session.GetInt32("UserId");
-            if(LoggedId == null)
+            if (LoggedId == null)
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -189,11 +189,81 @@ namespace Learn.Controllers
             {
                 Cards[i] = new FractionCard();
             }
+            // Loop through the array and assign values to each card
             for (int j = 0; j < 12; ++j)
             {
-                Cards[j].Dividend = rand.Next(1, 8);
-                Cards[j].Divisor = rand.Next(1, 10);
-                Cards[j].Whole = Cards[j].Dividend * Cards[j].Divisor;
+                Cards[j].Id = j;
+                // Create first fraction:
+                Cards[j].Dividend = rand.Next(1, 6);
+                Cards[j].Divisor = LevelOneNum();
+                // Create second fraction:
+                Cards[j].DividendTwo = rand.Next(1, 6);
+                Cards[j].DivisorTwo = LevelOneNum();
+                // Combine first and second fraction and assign to values "first" and "second"
+                Fraction first = new Fraction(Cards[j].Dividend, Cards[j].Divisor);
+                Fraction second = new Fraction(Cards[j].DividendTwo, Cards[j].DivisorTwo);
+
+                // Create variables to contain whole number reductions of each fraction
+                Cards[j].Whole = Cards[j].Dividend / Cards[j].Divisor;
+                Cards[j].WholeTwo = Cards[j].DividendTwo / Cards[j].DivisorTwo;
+                Cards[j].AnswerDividend = Cards[j].Dividend * Cards[j].DividendTwo;
+                Cards[j].AnswerDivisor = Cards[j].Divisor * Cards[j].DivisorTwo;
+                Cards[j].Modulus = Cards[j].Dividend % Cards[j].Divisor;
+                Cards[j].ModulusTwo = Cards[j].DividendTwo % Cards[j].DivisorTwo;
+
+                Cards[j].Answer = new Fraction(first * second);
+                frac = new Fraction(Cards[j].Answer);
+                Cards[j].Answer = frac;
+                Cards[j].DecimalDividend = (decimal)frac.Numerator;
+                Cards[j].DecimalDivisor = (decimal)frac.Denominator;
+                //Cards[j].AnswerDividend = (int)frac.Numerator;
+                //Cards[j].AnswerDivisor = (int)frac.Denominator;
+                Cards[j].AnswerWhole = Cards[j].AnswerDividend / Cards[j].AnswerDivisor;
+                Cards[j].AnswerModulus = Cards[j].AnswerDividend % Cards[j].AnswerDivisor;
+                // Format the fractions to be multiplied:
+                if (Cards[j].Modulus == 0)
+                {
+                    Cards[j].First = Cards[j].Dividend.ToString() + "/" + Cards[j].Divisor.ToString();
+                }
+                else
+                {
+                    Cards[j].First = new Fraction(Cards[j].Dividend, Cards[j].Divisor);
+                }
+                if (Cards[j].ModulusTwo == 0)
+                {
+                    Cards[j].Second = Cards[j].DividendTwo.ToString() + "/" + Cards[j].DivisorTwo.ToString();
+                }
+                else
+                {
+                    Cards[j].Second = new Fraction(Cards[j].DividendTwo, Cards[j].DivisorTwo);
+                }
+                // Format the Cards[j].Answer to display as a whole number over 1 and Cards[j].AnswerTwo as a reduced fraction: 
+                if (Cards[j].AnswerDividend < Cards[j].AnswerDivisor)
+                {
+                    Cards[j].AnswerWhole = null;
+                    Cards[j].AnswerTwo = new Fraction(Cards[j].AnswerDividend, Cards[j].AnswerDivisor);
+                }
+                else
+                {
+                    if (Cards[j].AnswerModulus == 0)
+                    {
+                        Cards[j].Answer = Cards[j].Answer.ToString() + "/1";
+                        Cards[j].AnswerTwo = null;
+                    }
+                    else
+                    {
+                        Cards[j].AnswerTwo = new Fraction(Cards[j].AnswerModulus, Cards[j].AnswerDivisor);
+                    }
+                }
+                // Calculate the decimal answer if the AnswerDivisor is not == 0.
+                if (Cards[j].AnswerDivisor != 0)
+                {
+                    Cards[j].AnswerDecimal = Decimal.Round((Cards[j].DecimalDividend / Cards[j].DecimalDivisor), 3);
+                }
+                else
+                {
+                    Cards[j].AnswerDecimal = Cards[j].DecimalDividend / 1;
+                }
             }
             return View("MultiplyLevelOne", Cards);
         }
@@ -201,7 +271,7 @@ namespace Learn.Controllers
         public IActionResult MultiplyLevelTwo()
         {
             int? LoggedId = HttpContext.Session.GetInt32("UserId");
-            if(LoggedId == null)
+            if (LoggedId == null)
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -215,11 +285,81 @@ namespace Learn.Controllers
             {
                 Cards[i] = new FractionCard();
             }
+            // Loop through the array and assign values to each card
             for (int j = 0; j < 12; ++j)
             {
-                Cards[j].Dividend = rand.Next(1, 12);
-                Cards[j].Divisor = rand.Next(1, 12);
-                Cards[j].Whole = Cards[j].Dividend * Cards[j].Divisor;
+                Cards[j].Id = j;
+                // Create first fraction:
+                Cards[j].Dividend = rand.Next(1, 10);
+                Cards[j].Divisor = LevelOneNum();
+                // Create second fraction:
+                Cards[j].DividendTwo = rand.Next(1, 10);
+                Cards[j].DivisorTwo = LevelOneNum();
+                // Combine first and second fraction and assign to values "first" and "second"
+                Fraction first = new Fraction(Cards[j].Dividend, Cards[j].Divisor);
+                Fraction second = new Fraction(Cards[j].DividendTwo, Cards[j].DivisorTwo);
+
+                // Create variables to contain whole number reductions of each fraction
+                Cards[j].Whole = Cards[j].Dividend / Cards[j].Divisor;
+                Cards[j].WholeTwo = Cards[j].DividendTwo / Cards[j].DivisorTwo;
+                Cards[j].AnswerDividend = Cards[j].Dividend * Cards[j].DividendTwo;
+                Cards[j].AnswerDivisor = Cards[j].Divisor * Cards[j].DivisorTwo;
+                Cards[j].Modulus = Cards[j].Dividend % Cards[j].Divisor;
+                Cards[j].ModulusTwo = Cards[j].DividendTwo % Cards[j].DivisorTwo;
+
+                Cards[j].Answer = new Fraction(first * second);
+                frac = new Fraction(Cards[j].Answer);
+                Cards[j].Answer = frac;
+                Cards[j].DecimalDividend = (decimal)frac.Numerator;
+                Cards[j].DecimalDivisor = (decimal)frac.Denominator;
+                //Cards[j].AnswerDividend = (int)frac.Numerator;
+                //Cards[j].AnswerDivisor = (int)frac.Denominator;
+                Cards[j].AnswerWhole = Cards[j].AnswerDividend / Cards[j].AnswerDivisor;
+                Cards[j].AnswerModulus = Cards[j].AnswerDividend % Cards[j].AnswerDivisor;
+                // Format the fractions to be multiplied:
+                if (Cards[j].Modulus == 0)
+                {
+                    Cards[j].First = Cards[j].Dividend.ToString() + "/" + Cards[j].Divisor.ToString();
+                }
+                else
+                {
+                    Cards[j].First = new Fraction(Cards[j].Dividend, Cards[j].Divisor);
+                }
+                if (Cards[j].ModulusTwo == 0)
+                {
+                    Cards[j].Second = Cards[j].DividendTwo.ToString() + "/" + Cards[j].DivisorTwo.ToString();
+                }
+                else
+                {
+                    Cards[j].Second = new Fraction(Cards[j].DividendTwo, Cards[j].DivisorTwo);
+                }
+                // Format the Cards[j].Answer to display as a whole number over 1 and Cards[j].AnswerTwo as a reduced fraction: 
+                if (Cards[j].AnswerDividend < Cards[j].AnswerDivisor)
+                {
+                    Cards[j].AnswerWhole = null;
+                    Cards[j].AnswerTwo = new Fraction(Cards[j].AnswerDividend, Cards[j].AnswerDivisor);
+                }
+                else
+                {
+                    if (Cards[j].AnswerModulus == 0)
+                    {
+                        Cards[j].Answer = Cards[j].Answer.ToString() + "/1";
+                        Cards[j].AnswerTwo = null;
+                    }
+                    else
+                    {
+                        Cards[j].AnswerTwo = new Fraction(Cards[j].AnswerModulus, Cards[j].AnswerDivisor);
+                    }
+                }
+                // Calculate the decimal answer if the AnswerDivisor is not == 0.
+                if (Cards[j].AnswerDivisor != 0)
+                {
+                    Cards[j].AnswerDecimal = Decimal.Round((Cards[j].DecimalDividend / Cards[j].DecimalDivisor), 3);
+                }
+                else
+                {
+                    Cards[j].AnswerDecimal = Cards[j].DecimalDividend / 1;
+                }
             }
             return View("MultiplyLevelTwo", Cards);
         }
@@ -227,7 +367,7 @@ namespace Learn.Controllers
         public IActionResult MultiplyLevelThree()
         {
             int? LoggedId = HttpContext.Session.GetInt32("UserId");
-            if(LoggedId == null)
+            if (LoggedId == null)
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -241,11 +381,81 @@ namespace Learn.Controllers
             {
                 Cards[i] = new FractionCard();
             }
+            // Loop through the array and assign values to each card
             for (int j = 0; j < 12; ++j)
             {
+                Cards[j].Id = j;
+                // Create first fraction:
                 Cards[j].Dividend = rand.Next(1, 10);
-                Cards[j].Divisor = rand.Next(1, 16);
-                Cards[j].Whole = Cards[j].Dividend * Cards[j].Divisor;
+                Cards[j].Divisor = LevelTwoNum();
+                // Create second fraction:
+                Cards[j].DividendTwo = rand.Next(1, 10);
+                Cards[j].DivisorTwo = LevelTwoNum();
+                // Combine first and second fraction and assign to values "first" and "second"
+                Fraction first = new Fraction(Cards[j].Dividend, Cards[j].Divisor);
+                Fraction second = new Fraction(Cards[j].DividendTwo, Cards[j].DivisorTwo);
+
+                // Create variables to contain whole number reductions of each fraction
+                Cards[j].Whole = Cards[j].Dividend / Cards[j].Divisor;
+                Cards[j].WholeTwo = Cards[j].DividendTwo / Cards[j].DivisorTwo;
+                Cards[j].AnswerDividend = Cards[j].Dividend * Cards[j].DividendTwo;
+                Cards[j].AnswerDivisor = Cards[j].Divisor * Cards[j].DivisorTwo;
+                Cards[j].Modulus = Cards[j].Dividend % Cards[j].Divisor;
+                Cards[j].ModulusTwo = Cards[j].DividendTwo % Cards[j].DivisorTwo;
+
+                Cards[j].Answer = new Fraction(first * second);
+                frac = new Fraction(Cards[j].Answer);
+                Cards[j].Answer = frac;
+                Cards[j].DecimalDividend = (decimal)frac.Numerator;
+                Cards[j].DecimalDivisor = (decimal)frac.Denominator;
+                //Cards[j].AnswerDividend = (int)frac.Numerator;
+                //Cards[j].AnswerDivisor = (int)frac.Denominator;
+                Cards[j].AnswerWhole = Cards[j].AnswerDividend / Cards[j].AnswerDivisor;
+                Cards[j].AnswerModulus = Cards[j].AnswerDividend % Cards[j].AnswerDivisor;
+                // Format the fractions to be multiplied:
+                if (Cards[j].Modulus == 0)
+                {
+                    Cards[j].First = Cards[j].Dividend.ToString() + "/" + Cards[j].Divisor.ToString();
+                }
+                else
+                {
+                    Cards[j].First = new Fraction(Cards[j].Dividend, Cards[j].Divisor);
+                }
+                if (Cards[j].ModulusTwo == 0)
+                {
+                    Cards[j].Second = Cards[j].DividendTwo.ToString() + "/" + Cards[j].DivisorTwo.ToString();
+                }
+                else
+                {
+                    Cards[j].Second = new Fraction(Cards[j].DividendTwo, Cards[j].DivisorTwo);
+                }
+                // Format the Cards[j].Answer to display as a whole number over 1 and Cards[j].AnswerTwo as a reduced fraction: 
+                if (Cards[j].AnswerDividend < Cards[j].AnswerDivisor)
+                {
+                    Cards[j].AnswerWhole = null;
+                    Cards[j].AnswerTwo = new Fraction(Cards[j].AnswerDividend, Cards[j].AnswerDivisor);
+                }
+                else
+                {
+                    if (Cards[j].AnswerModulus == 0)
+                    {
+                        Cards[j].Answer = Cards[j].Answer.ToString() + "/1";
+                        Cards[j].AnswerTwo = null;
+                    }
+                    else
+                    {
+                        Cards[j].AnswerTwo = new Fraction(Cards[j].AnswerModulus, Cards[j].AnswerDivisor);
+                    }
+                }
+                // Calculate the decimal answer if the AnswerDivisor is not == 0.
+                if (Cards[j].AnswerDivisor != 0)
+                {
+                    Cards[j].AnswerDecimal = Decimal.Round((Cards[j].DecimalDividend / Cards[j].DecimalDivisor), 3);
+                }
+                else
+                {
+                    Cards[j].AnswerDecimal = Cards[j].DecimalDividend / 1;
+                }
             }
             return View("MultiplyLevelThree", Cards);
         }

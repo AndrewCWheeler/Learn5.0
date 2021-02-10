@@ -87,7 +87,7 @@ namespace Learn.Controllers
         public IActionResult Guest()
         {
             HttpContext.Session.SetInt32("UserId", 1);
-            return RedirectToAction("DivideLevelOne", "Fractions");
+            return RedirectToAction("AddLevelOne", "Fractions");
         }
 
         public IActionResult Logout()
