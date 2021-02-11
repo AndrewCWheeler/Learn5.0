@@ -9,7 +9,11 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-1 d-xlg-none"></div>
-        <div class="col-sm-3 justify-content-end mt-4 tipCol">
+        <button class="btn btn-secondary btn-lg show-Tips text-center">
+            <i class="far fa-lightbulb mr-2"></i>Show Tips<i id="tipShow" class="fas fa-caret-down ml-4"></i>
+        </button>
+        
+        <div class="col-sm-3 justify-content-end mt-md-4 mt-sm-2 tipCol">
             <div class="tips">
                 <p class="mb-5">
                     <h5><i class="far fa-lightbulb cyan-text"></i> &nbsp;Tip #1:</h5> Any number divided by itself will
@@ -33,14 +37,19 @@
                     <h5><i class="far fa-lightbulb cyan-text"></i> &nbsp;Tip #5:</h5> If the <strong>denominator</strong> is
                     <strong>divisible</strong> by the <strong>numerator</strong>, then you know you will need to
                     <strong>reduce</strong> or <strong>simplify</strong> the fraction. Learn more <a target="_blank"
-                    href="https://en.wikipedia.org/wiki/Divisibility_rule">here</a> about the <strong>Divisibility
-                        rule</strong>.
+                                                                                                     href="https://en.wikipedia.org/wiki/Divisibility_rule">here</a> about the <strong>
+                        Divisibility
+                        rule
+                    </strong>.
                 </p>
             </div>
         </div>
-        <div class="col-sm-6 mt-5">
-            <h4 class="text-center instructions mt-4">Answer each with a reduced fraction. Tap the card to see the
-                solution.</h4>
+        <button class="btn btn-secondary btn-lg hide-Tips text-center"><i class="far fa-lightbulb mr-2"></i>Hide Tips<i class="fas fa-caret-up ml-4"></i></button>
+        <div class="col-sm-6 mt-md-5 mt-sm-1">
+            <h4 class="text-center instructions mt-4">
+                Answer each with a reduced fraction. Tap the card to see the
+                solution.
+            </h4>
             <div class="row justify-content-center">
                 @foreach (var item in Model)
                 {
@@ -51,7 +60,8 @@
                                 <p class="mx-3" style="font-size:42px">÷</p>
                                 <p>@item.Divisor</p>
                             </div>
-                            <div class="back mb-5">@item.Whole
+                            <div class="back mb-5">
+                                @item.Whole
                                 <span class="fraction">
                                     @item.Answer
                                 </span>
@@ -59,6 +69,10 @@
                         </div>
                     </div>
                 }
+            </div>
+            <div class="navButton-wrapper">
+                <button disabled class="btn btn-secondary btn-lg btn-box-shadow"><i class="fas fa-arrow-left mr-2"></i>Previous</button>
+                <a href="/Fractions/DivideLevelTwo" class="btn btn-secondary btn-lg btn-box-shadow">Next<i class="fas fa-arrow-right ml-2"></i></a>
             </div>
         </div>
         <div class="col-sm-1"></div>

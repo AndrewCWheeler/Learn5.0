@@ -55,6 +55,10 @@ $(function () {
       );
     }
   });
+    $('.show-Tips').click(function () {
+        $('.tipCol').toggleClass('visible');
+        $('#tipShow').toggleClass('fa-caret-up fa-caret-down');
+    });
   // $('.button-up').click(function() {
   //   $('#score').html(function(i, val) {
   //     return val*1+1 });
