@@ -13,8 +13,12 @@ $(function () {
   $('#signUpModal').on('shown.bs.modal', function () {
     $('#modalButton').trigger('focus');
   });
-  $('#Refresh').click(function () {
+  $('.refresh').click(function () {
     location.reload();
+  });
+  $('.link-to').click(function () {
+    var href = $(this).attr('href');
+    window.location.replace(href);
   });
   $('.fraction').each(function (key, value) {
     $this = $(this);

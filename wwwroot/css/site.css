@@ -24,8 +24,8 @@ html {
     .show-Tips {
         display: block !important;
     }
-    
 }
+
 @media (min-width: 768px) {
   html {
     font-size: 16px;
@@ -110,9 +110,6 @@ header {
   font-size: 36px;
 }
 .pos-times:hover {
-  color: lightgray;
-}
-.fa-arrow-right:hover {
   color: lightgray;
 }
 .fa-arrow-down:hover {
@@ -511,6 +508,7 @@ label.error {
   display: flex;
   justify-content: center;
   -webkit-appearance: none;
+  -webkit-backface-visibility: hidden;
   /* align-items: center; */
 }
 .cube__face--front {
@@ -685,10 +683,58 @@ label.error {
     margin-top: 72px;
 }
 
-.btn-box-shadow {
-    box-shadow: 0 30px 30px rgba(0, 0, 0, 0.6);
+.link-to {
+    cursor: pointer;
+    font-size: 24px;
 }
 
-.btn-box-shadow:hover {
-    background-color: #921ecc !important;
+/*a {
+    &::after
+
+{
+    content: " pseudo element";
+    opacity: 0;
 }
+
+&:hover {
+    &::after
+
+{
+    opacity: 1;
+}
+
+}*/
+/*    .navButton-wrapper a {
+        display: flex;
+        color: inherit;
+    }
+
+.my-nav-button {
+    background-color: #aa66cc;
+    border-radius: 3px;
+    color: white;
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.4);
+    height: 57px;
+    width: 130px;
+    display: flex;
+}
+    .my-nav-button div {
+        margin: auto;
+        font-family: Roboto, sans-serif;
+        font-weight: 300;
+        text-transform: uppercase;
+        font-size: 15.04px;
+    }
+*/
+
+/*    .my-nav-button:active {
+        background-color: #921ecc;
+    }*/
+
+/*.btn-box-shadow {
+    box-shadow: 0 30px 30px rgba(0, 0, 0, 0.6);
+}*/
+
+/*.btn-box-shadow:hover {
+    background-color: #921ecc !important;
+}*/

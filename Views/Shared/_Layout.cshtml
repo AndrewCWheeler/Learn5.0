@@ -20,7 +20,7 @@
     <header>
         <nav class="navbar fixed-top navbar-expand-sm navbar-toggleable-sm navbar-dark navback scrolling-navbar box-shadow mb-5">
             <div class="container-fluid">
-                <a class="navbar-brand text-white" href="#">Learn</a>
+                <a class="navbar-brand text-white refresh">Learn <i class="d-md-none d-sm-block fa fa-refresh fa-sm ml-2"></i></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -29,7 +29,7 @@
                     <ul class="navbar-nav flex-grow-1 align-items-center d-flex">
                         <li class="nav-item mx-3">
                             <div class="dropdown">
-                                <button class="btn btn-indigo btn-lg dropdown-toggle" type="button" id="dropdownFractions"
+                                <button class="btn btn-indigo btn-sm dropdown-toggle" type="button" id="dropdownFractions"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Fractions
                                 </button>
@@ -86,7 +86,7 @@
                             <div class='nav-link text-white'>@ViewData["Title"]</div>
                         </li>
                         <li class="nav-item mx-3">
-                            <a class="nav-link text-white" id="Refresh">
+                            <a class="nav-link text-white refresh">
                                 Refresh &nbsp;
                                 <i class="fa fa-refresh fa-sm" aria-hidden="true"></i>
                             </a>
@@ -98,16 +98,16 @@
                             </a>
                         </li>
                         @*<li class="nav-item dropdown ml-auto mx-3" type="button">
-                            <div class="nav-link text-white dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-user"></i>
-                                @ViewBag.LoggedUser
-                            </div>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" asp-controller="Home" asp-action="Logout">
-                                    Logout
-                                </a>
-                            </div>
-                        </li>*@
+                                <div class="nav-link text-white dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-user"></i>
+                                    @ViewBag.LoggedUser
+                                </div>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" asp-controller="Home" asp-action="Logout">
+                                        Logout
+                                    </a>
+                                </div>
+                            </li>*@
                     </ul>
                 </div>
             </div>
@@ -158,6 +158,7 @@
     <script type="text/javascript" src="~/js/mdb.min.js"></script>
     <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
     <script src="~/lib/jquery-validation/dist/additional-methods.js"></script>
+    
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script type="text/javascript">// Animations initialization
         new WOW().init();</script>

@@ -70,9 +70,13 @@
                     </div>
                 }
             </div>
-            <div class="navButton-wrapper">
-                <button disabled class="btn btn-secondary btn-lg btn-box-shadow"><i class="fas fa-arrow-left mr-2"></i>Previous</button>
-                <a href="/Fractions/DivideLevelTwo" class="btn btn-secondary btn-lg btn-box-shadow">Next<i class="fas fa-arrow-right ml-2"></i></a>
+            <div class="row d-flex justify-content-around mt-5">
+                <a asp-controller="Fractions" asp-action="DivideLevelOne" class="btn btn-secondary btn-lg">
+                    Refresh<i class="fa fa-refresh fa-sm ml-2"></i>
+                </a>
+                <a asp-controller="Fractions" asp-action="DivideLevelTwo" class="btn btn-secondary btn-lg">
+                    Next<i class="fas fa-arrow-right ml-2"></i>
+                </a>
             </div>
         </div>
         <div class="col-sm-1"></div>
